@@ -4,40 +4,40 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color tokens to match industrial shisha cafe aesthetic */
-  --background: oklch(0.97 0 0); /* Light gray background */
-  --foreground: oklch(0.2 0 0); /* Dark gray text */
-  --card: oklch(1 0 0); /* White cards */
-  --card-foreground: oklch(0.2 0 0); /* Dark text on cards */
-  --popover: oklch(1 0 0); /* White popovers */
-  --popover-foreground: oklch(0.2 0 0); /* Dark text on popovers */
-  --primary: oklch(0.65 0.15 280); /* Purple accent color */
-  --primary-foreground: oklch(1 0 0); /* White text on primary */
-  --secondary: oklch(0.45 0 0); /* Medium gray */
-  --secondary-foreground: oklch(1 0 0); /* White text on secondary */
-  --muted: oklch(0.97 0 0); /* Light gray muted */
-  --muted-foreground: oklch(0.45 0 0); /* Medium gray text */
-  --accent: oklch(0.65 0.15 280); /* Purple accent */
-  --accent-foreground: oklch(1 0 0); /* White text on accent */
-  --destructive: oklch(0.55 0.2 25); /* Red for errors */
-  --destructive-foreground: oklch(1 0 0); /* White text on destructive */
-  --border: oklch(0.45 0 0); /* Medium gray borders */
-  --input: oklch(1 0 0); /* White input fields */
-  --ring: oklch(0.65 0.15 280); /* Purple focus rings */
+  /* Dark theme - Black and gray industrial aesthetic */
+  --background: oklch(0.08 0 0); /* Very dark black background */
+  --foreground: oklch(0.9 0 0); /* Light gray text */
+  --card: oklch(0.15 0 0); /* Dark gray cards */
+  --card-foreground: oklch(0.9 0 0); /* Light text on cards */
+  --popover: oklch(0.15 0 0); /* Dark popovers */
+  --popover-foreground: oklch(0.9 0 0); /* Light text on popovers */
+  --primary: oklch(0.7 0.15 280); /* Purple accent color */
+  --primary-foreground: oklch(0.1 0 0); /* Dark text on primary */
+  --secondary: oklch(0.25 0 0); /* Medium gray */
+  --secondary-foreground: oklch(0.9 0 0); /* Light text on secondary */
+  --muted: oklch(0.2 0 0); /* Dark muted */
+  --muted-foreground: oklch(0.6 0 0); /* Medium gray text */
+  --accent: oklch(0.7 0.15 280); /* Purple accent */
+  --accent-foreground: oklch(0.1 0 0); /* Dark text on accent */
+  --destructive: oklch(0.6 0.2 25); /* Red for errors */
+  --destructive-foreground: oklch(0.9 0 0); /* Light text on destructive */
+  --border: oklch(0.25 0 0); /* Dark gray borders */
+  --input: oklch(0.2 0 0); /* Dark input fields */
+  --ring: oklch(0.7 0.15 280); /* Purple focus rings */
   --chart-1: oklch(0.6 0.15 260);
   --chart-2: oklch(0.55 0.15 250);
   --chart-3: oklch(0.5 0.15 240);
   --chart-4: oklch(0.45 0.15 230);
   --chart-5: oklch(0.4 0.15 220);
   --radius: 0.5rem;
-  --sidebar: oklch(0.2 0 0); /* Dark gray sidebar */
-  --sidebar-foreground: oklch(1 0 0); /* White sidebar text */
-  --sidebar-primary: oklch(0.25 0 0); /* Slightly lighter sidebar primary */
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.65 0.15 280); /* Purple sidebar accent */
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.45 0 0);
-  --sidebar-ring: oklch(0.65 0.15 280);
+  --sidebar: oklch(0.05 0 0); /* Very dark sidebar */
+  --sidebar-foreground: oklch(0.9 0 0); /* Light sidebar text */
+  --sidebar-primary: oklch(0.2 0 0); /* Dark sidebar primary */
+  --sidebar-primary-foreground: oklch(0.9 0 0);
+  --sidebar-accent: oklch(0.7 0.15 280); /* Purple sidebar accent */
+  --sidebar-accent-foreground: oklch(0.1 0 0);
+  --sidebar-border: oklch(0.25 0 0);
+  --sidebar-ring: oklch(0.7 0.15 280);
 }
 
 .dark {
@@ -77,8 +77,9 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-jetbrains-mono);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
