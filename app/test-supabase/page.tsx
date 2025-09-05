@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { supabase } from '@/lib/supabase'
+import { getSupabaseClient } from '@/lib/supabase'
 
 export default function TestSupabasePage() {
   const [connection, setConnection] = useState<'testing' | 'connected' | 'error'>('testing')
@@ -10,7 +10,7 @@ export default function TestSupabasePage() {
   useEffect(() => {
     const testConnection = async () => {
       try {
-        const { data, error } = await supabase.from('_realtime_schema').select('*').limit(1)
+        const { data, error } = await getSupabaseClient().from('_realtime_schema').select('*').limit(1)
         
         if (error) {
           // This is expected for most users, but it means Supabase is responding

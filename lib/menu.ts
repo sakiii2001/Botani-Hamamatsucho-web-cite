@@ -1,4 +1,4 @@
-import { supabase } from './supabase'
+import { getSupabaseClient } from './supabase'
 import type { Database } from '@/types/database.types'
 
 type Category = Database['public']['Tables']['categories']['Row']
@@ -21,6 +21,7 @@ export interface MenuProduct {
 export async function getDrinkMenu(): Promise<MenuCategory[]> {
   try {
     // カテゴリーと商品を一緒に取得
+    const supabase = getSupabaseClient()
     const { data: categories, error: categoriesError } = await supabase
       .from('categories')
       .select('*')

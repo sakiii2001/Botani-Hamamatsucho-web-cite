@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { supabaseServer } from '@/lib/supabase-server'
+import { getSupabaseServer } from '@/lib/supabase-server'
 
 export async function POST(request: NextRequest) {
   try {
+    const supabaseServer = getSupabaseServer()
     const { error } = await supabaseServer.auth.signOut()
 
     if (error) {
