@@ -1,4 +1,12 @@
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm install --legacy-peer-deps"
+  "installCommand": "pnpm install --frozen-lockfile",
+  "buildCommand": "pnpm run build",
+  "build": {
+    "env": {
+      "LIGHTNINGCSS_FORCE_WASM": "1"
+    }
+  },
+  "env": {
+    "LIGHTNINGCSS_FORCE_WASM": "1"
+  }
 }

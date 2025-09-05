@@ -9,9 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
-  trailingSlash: true,
-  distDir: 'out'
+  // Use default server output to enable Middleware and dynamic routes
+  trailingSlash: true
 }
 
 export default nextConfig
