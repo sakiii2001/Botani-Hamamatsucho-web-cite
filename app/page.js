@@ -11,7 +11,7 @@ import MenuModal from "@/components/menu-modal"
 import LanguageSelector from "@/components/language-selector"
 import ClientOnly from "@/components/client-only"
 import { useLanguage } from "@/contexts/language-context"
-import { PHONE_DISPLAY, PHONE_DISPLAY_FULLWIDTH, PHONE_E164 } from "@/lib/constants"
+import { PHONE_DISPLAY, PHONE_E164 } from "@/lib/constants"
 
 export default function HomePage() {
   const { t } = useLanguage()
@@ -254,14 +254,7 @@ export default function HomePage() {
             <Card className="p-6 text-center">
               <Phone className="w-12 h-12 mx-auto text-primary mb-4" />
               <h4 className="font-semibold mb-2 text-xl">{t.phoneReservation}</h4>
-              <p className="text-muted-foreground mb-2">{t.phoneDescription}</p>
-              <a 
-                href={`tel:${PHONE_E164}`}
-                className="block text-center text-xl font-semibold tracking-widest mb-4"
-                aria-label={`電話番号 ${PHONE_DISPLAY}`}
-              >
-                {PHONE_DISPLAY_FULLWIDTH}
-              </a>
+              <p className="text-muted-foreground mb-6">{t.phoneDescription}</p>
               <Button size="lg" className="w-full" asChild>
                 <a href={`tel:${PHONE_E164}`}>{t.callNow}</a>
               </Button>
