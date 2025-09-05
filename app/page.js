@@ -7,16 +7,18 @@ import { Badge } from "@/components/ui/badge"
 import { MapPin, Phone, Instagram, Wifi, Coffee, Users, MessageCircle, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
-import ReservationForm from "@/components/reservation-form"
 import MenuModal from "@/components/menu-modal"
+import LanguageSelector from "@/components/language-selector"
+import { useLanguage } from "@/contexts/language-context"
 
 export default function HomePage() {
-  const [menuModal, setMenuModal] = useState<{ isOpen: boolean; type: "drinks" | "flavors" | null }>({
+  const { t } = useLanguage()
+  const [menuModal, setMenuModal] = useState({
     isOpen: false,
     type: null,
   })
 
-  const openMenuModal = (type: "drinks" | "flavors") => {
+  const openMenuModal = (type) => {
     setMenuModal({ isOpen: true, type })
   }
 
@@ -31,20 +33,21 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4">
           <nav className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <h1 className="text-2xl font-serif font-bold text-foreground tracking-wide">BOTANI</h1>
-              <Badge variant="secondary">浜松町店</Badge>
+              <h1 className="text-2xl font-serif font-bold text-foreground tracking-wide">{t.storeName}</h1>
+              <Badge variant="secondary">{t.storeLocation}</Badge>
             </div>
             <div className="hidden md:flex items-center space-x-6">
               <Link href="#menu" className="text-muted-foreground hover:text-foreground transition-colors">
-                メニュー
+                {t.menu}
               </Link>
               <Link href="#reservation" className="text-muted-foreground hover:text-foreground transition-colors">
-                予約
+                {t.reservation}
               </Link>
               <Link href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
-                店舗情報
+                {t.storeInfo}
               </Link>
-              <Button onClick={() => document.getElementById('reservation')?.scrollIntoView({ behavior: 'smooth' })}>今すぐ予約</Button>
+              <LanguageSelector />
+              <Button onClick={() => document.getElementById('reservation')?.scrollIntoView({ behavior: 'smooth' })}>{t.reserveNow}</Button>
             </div>
           </nav>
         </div>
@@ -58,16 +61,16 @@ export default function HomePage() {
         </div>
         <div className="relative z-10 text-center space-y-6 px-4">
           <h2 className="text-4xl md:text-6xl font-serif font-light text-white text-balance tracking-wider leading-tight">
-            浜松町・大門エリアの
+            {t.heroTitle}
             <br />
-            <span className="font-light tracking-[0.15em] italic">シーシャ＆カフェバー</span>
+            <span className="font-light tracking-[0.15em] italic">{t.heroSubtitle}</span>
           </h2>
           <p className="text-xl text-gray-200 max-w-2xl mx-auto text-pretty">
-            飲み会やデート、友達との雑談、カフェ利用、お一人様でのコワーキング、様々なシーンにご利用可能です。
+            {t.heroDescription}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="text-lg px-8" onClick={() => document.getElementById('reservation')?.scrollIntoView({ behavior: 'smooth' })}>
-              今すぐ予約する
+              {t.reserveNow}
             </Button>
             <Button
               variant="outline"
@@ -75,7 +78,7 @@ export default function HomePage() {
               className="text-lg px-8 bg-white/10 border-white/20 text-white hover:bg-white/20"
               onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              メニューを見る
+              {t.viewMenu}
             </Button>
           </div>
         </div>
@@ -83,7 +86,7 @@ export default function HomePage() {
 
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">店内の雰囲気</h3>
+          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">{t.storeAtmosphereTitle}</h3>
           <div className="max-w-2xl mx-auto">
             <div className="relative aspect-video rounded-lg overflow-hidden">
               <Image
@@ -95,7 +98,7 @@ export default function HomePage() {
             </div>
           </div>
           <p className="text-center text-muted-foreground mt-8 max-w-3xl mx-auto">
-            工業的なデザインと温かみのある照明が織りなす、洗練された空間。コンクリート壁と黒革のソファが作り出すモダンな雰囲気の中で、ゆったりとしたひとときをお過ごしください。
+            {t.storeAtmosphereDescription}
           </p>
         </div>
       </section>
@@ -103,37 +106,37 @@ export default function HomePage() {
       {/* Features Section */}
       <section className="py-16 bg-card">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">BOTANIの特徴</h3>
+          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">{t.featuresTitle}</h3>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="text-center">
               <CardHeader>
                 <Wifi className="w-12 h-12 mx-auto text-primary mb-4" />
-                <CardTitle>Wi-Fi & 電源完備</CardTitle>
+                <CardTitle>{t.wifiTitle}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  コワーキングスペースとしても利用可能。高速Wi-Fiと電源をご用意しています。
+                  {t.wifiDescription}
                 </CardDescription>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardHeader>
                 <Coffee className="w-12 h-12 mx-auto text-primary mb-4" />
-                <CardTitle>多彩なフレーバー</CardTitle>
+                <CardTitle>{t.flavorsTitle}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription>
-                  メニューに載ってないフレーバーも多数あります。ノンニコチン、ダークリーフフレーバーの取り扱いもございます。
+                  {t.flavorsDescription}
                 </CardDescription>
               </CardContent>
             </Card>
             <Card className="text-center">
               <CardHeader>
                 <Users className="w-12 h-12 mx-auto text-primary mb-4" />
-                <CardTitle>初心者歓迎</CardTitle>
+                <CardTitle>{t.beginnerTitle}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>シーシャが初めての方も安心。スタッフが丁寧にご説明いたします。</CardDescription>
+                <CardDescription>{t.beginnerDescription}</CardDescription>
               </CardContent>
             </Card>
           </div>
@@ -143,61 +146,91 @@ export default function HomePage() {
       {/* Menu Preview */}
       <section id="menu" className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">メニュー</h3>
+          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">{t.menuTitle}</h3>
           <div className="grid lg:grid-cols-2 gap-8">
             <Card className="overflow-hidden">
-              <div className="relative h-48">
-                <Image src="/images/drink-menu-1.png" alt="ドリンクメニュー" fill className="object-cover" />
-              </div>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Coffee className="w-6 h-6" />
-                  ドリンクメニュー
+                  {t.drinkMenu}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span>アルコール各種</span>
+                  <span>{t.alcoholVariety}</span>
                   <span className="text-muted-foreground">¥800〜</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span>ソフトドリンク</span>
+                  <span>{t.softDrinks}</span>
                   <span className="text-muted-foreground">¥700</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span>シャンパン</span>
+                  <span>{t.champagne}</span>
                   <span className="text-muted-foreground">¥30,000〜</span>
                 </div>
                 <Button variant="outline" className="w-full bg-transparent" onClick={() => openMenuModal('drinks')}>
-                  ドリンクメニューを見る
+                  {t.viewDrinkMenu}
                 </Button>
               </CardContent>
             </Card>
             <Card className="overflow-hidden">
-              <div className="relative h-48">
-                <Image src="/images/flavors-menu.png" alt="シーシャフレーバーメニュー" fill className="object-cover" />
-              </div>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <MessageCircle className="w-6 h-6" />
-                  シーシャフレーバー
+                  {t.shishaFlavors}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span>シーシャ</span>
-                  <span className="text-muted-foreground">¥3,000</span>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="font-semibold mb-2">{t.chargeTitle}</h4>
+                    <div className="flex justify-between items-center">
+                      <span>{t.allTime}</span>
+                      <span className="text-muted-foreground">¥1,000</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span>{t.barUse}</span>
+                      <span className="text-muted-foreground">¥1,500</span>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-2">{t.shishaTitle}</h4>
+                    <div className="flex justify-between items-center">
+                      <span>{t.shishaOne}</span>
+                      <span className="text-muted-foreground">¥3,000</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span>{t.share}</span>
+                      <span className="text-muted-foreground">¥1,500</span>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-2">{t.shishaOptions}</h4>
+                    <div className="text-sm space-y-1">
+                      <div className="flex justify-between items-center">
+                        <span>{t.iceHose}</span>
+                        <span className="text-muted-foreground">¥800</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span>{t.juiceBottle}</span>
+                        <span className="text-muted-foreground">¥1,000</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span>{t.alcoholBottle}</span>
+                        <span className="text-muted-foreground">¥3,000</span>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <span>{t.topChange}</span>
+                        <span className="text-muted-foreground">¥2,000</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span>シェア</span>
-                  <span className="text-muted-foreground">¥1,500</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span>フルーツ・スパイス系など</span>
-                  <span className="text-muted-foreground">多数ご用意</span>
-                </div>
+                
                 <Button variant="outline" className="w-full bg-transparent" onClick={() => openMenuModal('flavors')}>
-                  フレーバーメニューを見る
+                  {t.viewFlavorMenu}
                 </Button>
               </CardContent>
             </Card>
@@ -208,35 +241,59 @@ export default function HomePage() {
       {/* Reservation Section */}
       <section id="reservation" className="py-16 bg-card">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="text-3xl font-bold mb-8 text-foreground">ご予約</h3>
+          <h3 className="text-3xl font-bold mb-8 text-foreground">{t.reservationTitle}</h3>
           <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            下記フォームからご予約いただけます。お電話やInstagram DMでもご予約を承っております。
+            {t.reservationDescription}
           </p>
 
-          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
-            <div className="lg:col-span-1 space-y-6">
-              <Card className="p-6">
-                <Phone className="w-8 h-8 mx-auto text-primary mb-4" />
-                <h4 className="font-semibold mb-2">電話予約</h4>
-                <p className="text-sm text-muted-foreground mb-4">お急ぎの場合はお電話で</p>
-                <Button variant="outline" className="w-full bg-transparent" onClick={() => window.open('tel:+81-3-XXXX-XXXX')}>
-                  電話をかける
-                </Button>
-              </Card>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="p-6 text-center">
+              <Phone className="w-12 h-12 mx-auto text-primary mb-4" />
+              <h4 className="font-semibold mb-2 text-xl">{t.phoneReservation}</h4>
+              <p className="text-muted-foreground mb-6">{t.phoneDescription}</p>
+              <Button size="lg" className="w-full" onClick={() => window.open('tel:+81-3-XXXX-XXXX')}>
+                {t.callNow}
+              </Button>
+            </Card>
 
-              <Card className="p-6">
-                <Instagram className="w-8 h-8 mx-auto text-primary mb-4" />
-                <h4 className="font-semibold mb-2">Instagram DM</h4>
-                <p className="text-sm text-muted-foreground mb-4">DMでもご予約可能</p>
-                <Button variant="outline" className="w-full bg-transparent" onClick={() => window.open('https://instagram.com/shishabar_botani_hamamatsucho', '_blank')}>
-                  DMを送る
-                </Button>
-              </Card>
-            </div>
+            <Card className="p-6 text-center">
+              <Instagram className="w-12 h-12 mx-auto text-primary mb-4" />
+              <h4 className="font-semibold mb-2 text-xl">{t.instagramDM}</h4>
+              <p className="text-muted-foreground mb-6">{t.instagramDescription}</p>
+              <Button size="lg" className="w-full" onClick={() => window.open('https://instagram.com/shishabar_botani_hamamatsucho', '_blank')}>
+                {t.sendDM}
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </section>
 
-            <div className="lg:col-span-2">
-              <ReservationForm />
+      {/* LINE Add Friend Section */}
+      <section className="py-16 bg-background border-t border-border">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-2xl mx-auto">
+            <div className="flex items-center justify-center mb-6">
+              <div className="bg-gradient-to-r from-green-400 to-green-600 p-4 rounded-full">
+                <MessageCircle className="w-8 h-8 text-white" />
+              </div>
             </div>
+            <h3 className="text-2xl font-bold mb-4 text-foreground">{t.lineTitle}</h3>
+            <p className="text-muted-foreground mb-8">
+              {t.lineDescription}
+            </p>
+            <div className="bg-card rounded-lg p-6 mb-6">
+              <p className="text-lg font-semibold mb-2">LINE ID</p>
+              <p className="text-2xl font-mono text-primary mb-4">@950sfthr</p>
+              <p className="text-sm text-muted-foreground">{t.lineIdLabel}</p>
+            </div>
+            <Button 
+              size="lg" 
+              className="bg-green-500 hover:bg-green-600 text-white border-0 px-8 py-3"
+              onClick={() => window.open('https://line.me/R/ti/p/@950sfthr', '_blank')}
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              {t.lineAddButton}
+            </Button>
           </div>
         </div>
       </section>
@@ -244,18 +301,18 @@ export default function HomePage() {
       {/* About Section */}
       <section id="about" className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">店舗情報</h3>
+          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">{t.storeInfoTitle}</h3>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h4 className="text-2xl font-semibold">シーシャ（水タバコ）とは</h4>
+              <h4 className="text-2xl font-semibold">{t.aboutShisha}</h4>
               <p className="text-muted-foreground leading-relaxed">
-                別名"水タバコ"とも呼ばれる「シーシャ」。水タバコは中近東で発明され、その後インド北部や中国、東南アジアの一部に伝わりました。シーシャは皿の上で燃やしたタバコの煙を「水パイプ」という専用の器具でろ過し、香りを楽しむものです。
+                {t.aboutShishaDescription}
               </p>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-medium">住所</p>
+                    <p className="font-medium">{t.address}</p>
                     <p className="text-muted-foreground">〒105-0013 東京都港区浜松町１丁目２４−５ロマネBLDG 3F</p>
                   </div>
                 </div>
@@ -270,11 +327,28 @@ export default function HomePage() {
                   }
                 >
                   <ExternalLink className="w-4 h-4 mr-2" />
-                  Googleマップで開く
+                  {t.openGoogleMaps}
                 </Button>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary" />
-                  <span>お電話でのご予約承ります</span>
+                  <span>{t.phoneReservations}</span>
+                </div>
+                <div className="mt-6 pt-6 border-t border-border">
+                  <h5 className="font-semibold mb-3">{t.paymentMethods}</h5>
+                  <div className="space-y-2 text-muted-foreground">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      <span>{t.cash}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      <span>{t.payPay}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 bg-primary rounded-full"></span>
+                      <span>{t.creditCard}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -283,10 +357,10 @@ export default function HomePage() {
                 <Image src="/images/shisha-setup.png" alt="シーシャの雰囲気" fill className="object-cover" />
               </div>
               <div className="bg-card/90 backdrop-blur-sm rounded-lg p-6 mt-6">
-                <h4 className="text-xl font-serif font-semibold mb-4">営業時間</h4>
+                <h4 className="text-xl font-serif font-semibold mb-4">{t.businessHours}</h4>
                 <div className="space-y-2 text-muted-foreground">
-                  <p>13:00 - 24:00</p>
-                  <p className="text-sm mt-4">※最終入店は23:00まで</p>
+                  <p>{t.businessHoursValue}</p>
+                  <p className="text-sm mt-4">{t.businessHoursNote}</p>
                 </div>
               </div>
             </div>
@@ -299,27 +373,27 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h4 className="text-xl font-serif font-bold mb-4 tracking-wide">BOTANI 浜松町店</h4>
-              <p className="text-sidebar-foreground/80 mb-4">浜松町・大門エリアのシーシャ＆カフェバー</p>
+              <h4 className="text-xl font-serif font-bold mb-4 tracking-wide">{t.storeName} {t.storeLocation}</h4>
+              <p className="text-sidebar-foreground/80 mb-4">{t.footerDescription}</p>
               <p className="text-sidebar-foreground/60 text-sm">
                 〒105-0013 東京都港区浜松町１丁目２４−５ロマネBLDG 3F
               </p>
             </div>
             <div>
-              <h5 className="font-semibold mb-4">メニュー</h5>
+              <h5 className="font-semibold mb-4">{t.footerMenuTitle}</h5>
               <ul className="space-y-2 text-sidebar-foreground/80">
-                <li>ドリンクメニュー</li>
-                <li>シーシャフレーバー</li>
-                <li>料金システム</li>
+                <li>{t.footerDrinkMenu}</li>
+                <li>{t.footerShishaFlavors}</li>
+                <li>{t.footerPricingSystem}</li>
               </ul>
             </div>
             <div>
-              <h5 className="font-semibold mb-4">SNS・予約</h5>
+              <h5 className="font-semibold mb-4">{t.footerSNSTitle}</h5>
               <div className="flex gap-4">
                 <Button variant="outline" size="sm" onClick={() => window.open('https://instagram.com/shishabar_botani_hamamatsucho', '_blank')}>
                   <Instagram className="w-4 h-4" />
                 </Button>
-                <Button variant="outline" size="sm" onClick={() => window.open('https://line.me/R/ti/p/@botani', '_blank')}>
+                <Button variant="outline" size="sm" onClick={() => window.open('https://line.me/R/ti/p/@950sfthr', '_blank')}>
                   <MessageCircle className="w-4 h-4" />
                 </Button>
                 <Button variant="outline" size="sm" onClick={() => window.open('tel:+81-3-XXXX-XXXX')}>
@@ -329,7 +403,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-sidebar-border mt-8 pt-8 text-center text-sidebar-foreground/60">
-            <p>&copy; 2025 BOTANI 浜松町店. All rights reserved.</p>
+            <p dangerouslySetInnerHTML={{ __html: t.footerCopyright }} />
           </div>
         </div>
       </footer>

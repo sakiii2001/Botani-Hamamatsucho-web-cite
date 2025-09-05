@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import { LanguageProvider } from "@/contexts/language-context"
 import "./globals.css"
 
 const inter = Inter({
@@ -23,6 +24,7 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 })
 
+
 export const metadata: Metadata = {
   title: "BOTANI 浜松町店 - シーシャ＆カフェバー",
   description:
@@ -38,7 +40,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${inter.variable} ${playfair.variable} ${jetbrainsMono.variable} font-sans`}>
-        <Suspense fallback={null}>{children}</Suspense>
+        <LanguageProvider>
+          <Suspense fallback={null}>{children}</Suspense>
+        </LanguageProvider>
         <Analytics />
       </body>
     </html>
