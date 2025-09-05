@@ -254,7 +254,7 @@ export default function HomePage() {
               <Phone className="w-12 h-12 mx-auto text-primary mb-4" />
               <h4 className="font-semibold mb-2 text-xl">{t.phoneReservation}</h4>
               <p className="text-muted-foreground mb-6">{t.phoneDescription}</p>
-              <Button size="lg" className="w-full" onClick={() => window.open('tel:+81-3-XXXX-XXXX')}>
+              <Button size="lg" className="w-full" onClick={() => window.open('tel:070-1465-0041')}>
                 {t.callNow}
               </Button>
             </Card>
@@ -334,7 +334,12 @@ export default function HomePage() {
                 </Button>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary" />
-                  <span>{t.phoneReservations}</span>
+                  <button 
+                    onClick={() => window.open('tel:070-1465-0041')}
+                    className="text-primary hover:underline"
+                  >
+                    070-1465-0041
+                  </button>
                 </div>
                 <div className="mt-6 pt-6 border-t border-border">
                   <h5 className="font-semibold mb-3">{t.paymentMethods}</h5>
@@ -399,7 +404,7 @@ export default function HomePage() {
                 <Button variant="outline" size="sm" onClick={() => window.open('https://line.me/R/ti/p/@950sfthr', '_blank')}>
                   <MessageCircle className="w-4 h-4" />
                 </Button>
-                <Button variant="outline" size="sm" onClick={() => window.open('tel:+81-3-XXXX-XXXX')}>
+                <Button variant="outline" size="sm" onClick={() => window.open('tel:070-1465-0041')}>
                   <Phone className="w-4 h-4" />
                 </Button>
               </div>
