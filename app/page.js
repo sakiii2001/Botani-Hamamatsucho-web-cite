@@ -11,7 +11,7 @@ import MenuModal from "@/components/menu-modal"
 import LanguageSelector from "@/components/language-selector"
 import ClientOnly from "@/components/client-only"
 import { useLanguage } from "@/contexts/language-context"
-import { PHONE_DISPLAY, PHONE_E164 } from "@/lib/constants"
+import { PHONE_DISPLAY, PHONE_DISPLAY_FULLWIDTH, PHONE_E164 } from "@/lib/constants"
 
 export default function HomePage() {
   const { t } = useLanguage()
