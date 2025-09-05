@@ -383,8 +383,17 @@ export default function HomePage() {
             <div>
               <h4 className="text-xl font-serif font-bold mb-4 tracking-wide">{t.storeName} {t.storeLocation}</h4>
               <p className="text-sidebar-foreground/80 mb-4">{t.footerDescription}</p>
-              <p className="text-sidebar-foreground/60 text-sm">
+              <p className="text-sidebar-foreground/60 text-sm mb-2">
                 〒105-0013 東京都港区浜松町１丁目２４−５ロマネBLDG 3F
+              </p>
+              <p className="text-sidebar-foreground/80">
+                <Phone className="w-4 h-4 inline mr-2" />
+                <button 
+                  onClick={() => window.open('tel:070-1465-0041')}
+                  className="text-primary hover:underline"
+                >
+                  070-1465-0041
+                </button>
               </p>
             </div>
             <div>
