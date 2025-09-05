@@ -9,6 +9,7 @@ import Link from "next/link"
 import Image from "next/image"
 import MenuModal from "@/components/menu-modal"
 import LanguageSelector from "@/components/language-selector"
+import ClientOnly from "@/components/client-only"
 import { useLanguage } from "@/contexts/language-context"
 
 export default function HomePage() {
@@ -46,7 +47,9 @@ export default function HomePage() {
               <Link href="#about" className="text-muted-foreground hover:text-foreground transition-colors">
                 {t.storeInfo}
               </Link>
-              <LanguageSelector />
+              <ClientOnly>
+                <LanguageSelector />
+              </ClientOnly>
               <Button onClick={() => document.getElementById('reservation')?.scrollIntoView({ behavior: 'smooth' })}>{t.reserveNow}</Button>
             </div>
           </nav>
@@ -408,11 +411,13 @@ export default function HomePage() {
         </div>
       </footer>
       
-      <MenuModal 
-        isOpen={menuModal.isOpen} 
-        onClose={closeMenuModal} 
-        type={menuModal.type || 'drinks'} 
-      />
+      <ClientOnly>
+        <MenuModal 
+          isOpen={menuModal.isOpen} 
+          onClose={closeMenuModal} 
+          type={menuModal.type || 'drinks'} 
+        />
+      </ClientOnly>
     </div>
   )
 }
