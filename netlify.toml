@@ -1,0 +1,11 @@
+[build]
+  command = "pnpm install --no-frozen-lockfile && pnpm run build"
+  publish = ".next"
+
+[build.environment]
+  LIGHTNINGCSS_FORCE_WASM = "1"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
