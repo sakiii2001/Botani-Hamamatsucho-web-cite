@@ -11,6 +11,7 @@ import MenuModal from "@/components/menu-modal"
 import LanguageSelector from "@/components/language-selector"
 import ClientOnly from "@/components/client-only"
 import { useLanguage } from "@/contexts/language-context"
+import { PHONE_DISPLAY, PHONE_E164 } from "@/lib/constants"
 
 export default function HomePage() {
   const { t } = useLanguage()
@@ -254,8 +255,8 @@ export default function HomePage() {
               <Phone className="w-12 h-12 mx-auto text-primary mb-4" />
               <h4 className="font-semibold mb-2 text-xl">{t.phoneReservation}</h4>
               <p className="text-muted-foreground mb-6">{t.phoneDescription}</p>
-              <Button size="lg" className="w-full" onClick={() => window.open('tel:070-1465-0041')}>
-                {t.callNow}
+              <Button size="lg" className="w-full" asChild>
+                <a href={`tel:${PHONE_E164}`}>{t.callNow}</a>
               </Button>
             </Card>
 
@@ -334,12 +335,12 @@ export default function HomePage() {
                 </Button>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary" />
-                  <button 
-                    onClick={() => window.open('tel:070-1465-0041')}
+                  <a 
+                    href={`tel:${PHONE_E164}`}
                     className="text-primary hover:underline"
                   >
-                    070-1465-0041
-                  </button>
+                    {PHONE_DISPLAY}
+                  </a>
                 </div>
                 <div className="mt-6 pt-6 border-t border-border">
                   <h5 className="font-semibold mb-3">{t.paymentMethods}</h5>
@@ -388,12 +389,12 @@ export default function HomePage() {
               </p>
               <p className="text-sidebar-foreground/80">
                 <Phone className="w-4 h-4 inline mr-2" />
-                <button 
-                  onClick={() => window.open('tel:070-1465-0041')}
+                <a 
+                  href={`tel:${PHONE_E164}`}
                   className="text-primary hover:underline"
                 >
-                  070-1465-0041
-                </button>
+                  {PHONE_DISPLAY}
+                </a>
               </p>
             </div>
             <div>
@@ -413,8 +414,10 @@ export default function HomePage() {
                 <Button variant="outline" size="sm" onClick={() => window.open('https://line.me/R/ti/p/@950sfthr', '_blank')}>
                   <MessageCircle className="w-4 h-4" />
                 </Button>
-                <Button variant="outline" size="sm" onClick={() => window.open('tel:070-1465-0041')}>
-                  <Phone className="w-4 h-4" />
+                <Button variant="outline" size="sm" asChild>
+                  <a href={`tel:${PHONE_E164}`}>
+                    <Phone className="w-4 h-4" />
+                  </a>
                 </Button>
               </div>
             </div>
