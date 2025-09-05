@@ -1,5 +1,5 @@
 {
-  "installCommand": "pnpm config set auto-install-peers false && pnpm install --frozen-lockfile",
+  "installCommand": "pnpm install --frozen-lockfile --config.auto-install-peers=false",
   "buildCommand": "pnpm run build",
   "build": {
     "env": {
