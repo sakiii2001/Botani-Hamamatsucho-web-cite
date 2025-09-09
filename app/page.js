@@ -11,7 +11,7 @@ import MenuModal from "@/components/menu-modal"
 import LanguageSelector from "@/components/language-selector"
 import ClientOnly from "@/components/client-only"
 import { useLanguage } from "@/contexts/language-context"
-import { PHONE_DISPLAY, PHONE_DISPLAY_FULLWIDTH, PHONE_E164 } from "@/lib/constants"
+import { PHONE_DISPLAY, PHONE_DISPLAY_FULLWIDTH, PHONE_E164, PHONE_DISPLAY_JP_MARK } from "@/lib/constants"
 
 export default function HomePage() {
   const { t } = useLanguage()
@@ -246,9 +246,10 @@ export default function HomePage() {
       <section id="reservation" className="py-16 bg-card">
         <div className="container mx-auto px-4 text-center">
           <h3 className="text-3xl font-bold mb-8 text-foreground">{t.reservationTitle}</h3>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-muted-foreground mb-4 max-w-2xl mx-auto">
             {t.reservationDescription}
           </p>
+          <p className="text-foreground font-medium mb-8">{t.phoneReservations} {PHONE_DISPLAY_JP_MARK}</p>
 
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="p-6 text-center">
