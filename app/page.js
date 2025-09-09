@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -12,6 +12,7 @@ import LanguageSelector from "@/components/language-selector"
 import ClientOnly from "@/components/client-only"
 import { useLanguage } from "@/contexts/language-context"
 import { PHONE_DISPLAY, PHONE_DISPLAY_FULLWIDTH, PHONE_E164 } from "@/lib/constants"
+import { getDrinkMenu, getShishaMenu } from "@/lib/menu"
 
 export default function HomePage() {
   const { t } = useLanguage()
@@ -19,6 +20,80 @@ export default function HomePage() {
     isOpen: false,
     type: null,
   })
+
+  // Dynamic preview prices from Supabase
+  const [drinkPreview, setDrinkPreview] = useState({
+    alcoholFrom: null,
+    softFrom: null,
+    champagneFrom: null,
+  })
+  const [systemPreview, setSystemPreview] = useState({
+    allTime: null,
+    barUse: null,
+    shishaOne: null,
+    share: null,
+    iceHose: null,
+  })
+
+  useEffect(() => {
+    let cancelled = false
+    const load = async () => {
+      try {
+        const [drinkMenu, shishaMenu] = await Promise.all([
+          getDrinkMenu(),
+          getShishaMenu(),
+        ])
+
+        if (cancelled) return
+
+        // Drinks: compute mins
+        const allDrinkItems = drinkMenu.flatMap((c) => c.items || [])
+        const categoryByName = (name) => drinkMenu.find((c) => c.name === name)
+
+        // Support English or Japanese DB category names
+        const softCat = categoryByName('ソフトドリンク') || categoryByName('Soft Drink')
+        const champagneCat = categoryByName('シャンパン') || categoryByName('Champagne')
+
+        const minPrice = (items) => {
+          const prices = (items || []).map((i) => i.price).filter((p) => typeof p === 'number')
+          return prices.length ? Math.min(...prices) : null
+        }
+
+        const excluded = new Set(['ソフトドリンク', 'シャンパン', 'Soft Drink', 'Champagne'])
+        const alcoholFrom = minPrice(
+          allDrinkItems.filter((i) => {
+            const cat = drinkMenu.find((c) => c.items?.some((x) => x.id === i.id))
+            return cat && !excluded.has(cat.name)
+          })
+        )
+        const softFrom = softCat ? minPrice(softCat.items) : null
+        const champagneFrom = champagneCat ? minPrice(champagneCat.items) : null
+
+        setDrinkPreview({ alcoholFrom, softFrom, champagneFrom })
+
+        // Shisha/System: pick by product name
+        const findByName = (name) => shishaMenu.find((p) => p.name === name)
+        setSystemPreview({
+          allTime: findByName('ALL TIME')?.price ?? null,
+          barUse: findByName('BAR USE')?.price ?? null,
+          shishaOne: findByName('シーシャ一台')?.price ?? null,
+          share: findByName('シェア')?.price ?? null,
+          iceHose: findByName('アイスホース')?.price ?? null,
+        })
+      } catch (e) {
+        // Silent: preview is optional; modal shows full data with errors handled
+      }
+    }
+    load()
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  const formatPrice = (price) => {
+    if (price === null || price === undefined) return null
+    return `¥${Number(price).toLocaleString()}`
+  }
 
   const openMenuModal = (type) => {
     setMenuModal({ isOpen: true, type })
@@ -166,18 +241,25 @@ export default function HomePage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span>{t.alcoholVariety}</span>
-                  <span className="text-muted-foreground">¥800〜</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span>{t.softDrinks}</span>
-                  <span className="text-muted-foreground">¥700</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span>{t.champagne}</span>
-                  <span className="text-muted-foreground">¥30,000〜</span>
-                </div>
+                {/* Dynamic preview derived from Supabase */}
+                {drinkPreview.alcoholFrom !== null && (
+                  <div className="flex justify-between items-center">
+                    <span>{t.alcoholVariety}</span>
+                    <span className="text-muted-foreground">{formatPrice(drinkPreview.alcoholFrom)}〜</span>
+                  </div>
+                )}
+                {drinkPreview.softFrom !== null && (
+                  <div className="flex justify-between items-center">
+                    <span>{t.softDrinks}</span>
+                    <span className="text-muted-foreground">{formatPrice(drinkPreview.softFrom)}</span>
+                  </div>
+                )}
+                {drinkPreview.champagneFrom !== null && (
+                  <div className="flex justify-between items-center">
+                    <span>{t.champagne}</span>
+                    <span className="text-muted-foreground">{formatPrice(drinkPreview.champagneFrom)}〜</span>
+                  </div>
+                )}
                 <Button variant="outline" className="w-full bg-transparent" onClick={() => openMenuModal('drinks')}>
                   {t.viewDrinkMenu}
                 </Button>
@@ -191,52 +273,55 @@ export default function HomePage() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
+                {/* Dynamic system preview from Supabase */}
                 <div className="space-y-3">
-                  <div>
-                    <h4 className="font-semibold mb-2">{t.chargeTitle}</h4>
-                    <div className="flex justify-between items-center">
-                      <span>{t.allTime}</span>
-                      <span className="text-muted-foreground">¥1,000</span>
+                  {(systemPreview.allTime !== null || systemPreview.barUse !== null) && (
+                    <div>
+                      <h4 className="font-semibold mb-2">{t.chargeTitle}</h4>
+                      {systemPreview.allTime !== null && (
+                        <div className="flex justify-between items-center">
+                          <span>{t.allTime}</span>
+                          <span className="text-muted-foreground">{formatPrice(systemPreview.allTime)}</span>
+                        </div>
+                      )}
+                      {systemPreview.barUse !== null && (
+                        <div className="flex justify-between items-center">
+                          <span>{t.barUse}</span>
+                          <span className="text-muted-foreground">{formatPrice(systemPreview.barUse)}</span>
+                        </div>
+                      )}
                     </div>
-                    <div className="flex justify-between items-center">
-                      <span>{t.barUse}</span>
-                      <span className="text-muted-foreground">¥1,500</span>
+                  )}
+
+                  {(systemPreview.shishaOne !== null || systemPreview.share !== null) && (
+                    <div>
+                      <h4 className="font-semibold mb-2">{t.shishaTitle}</h4>
+                      {systemPreview.shishaOne !== null && (
+                        <div className="flex justify-between items-center">
+                          <span>{t.shishaOne}</span>
+                          <span className="text-muted-foreground">{formatPrice(systemPreview.shishaOne)}</span>
+                        </div>
+                      )}
+                      {systemPreview.share !== null && (
+                        <div className="flex justify-between items-center">
+                          <span>{t.share}</span>
+                          <span className="text-muted-foreground">{formatPrice(systemPreview.share)}</span>
+                        </div>
+                      )}
                     </div>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold mb-2">{t.shishaTitle}</h4>
-                    <div className="flex justify-between items-center">
-                      <span>{t.shishaOne}</span>
-                      <span className="text-muted-foreground">¥3,000</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span>{t.share}</span>
-                      <span className="text-muted-foreground">¥1,500</span>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold mb-2">{t.shishaOptions}</h4>
-                    <div className="text-sm space-y-1">
-                      <div className="flex justify-between items-center">
-                        <span>{t.iceHose}</span>
-                        <span className="text-muted-foreground">¥800</span>
+                  )}
+
+                  {systemPreview.iceHose !== null && (
+                    <div>
+                      <h4 className="font-semibold mb-2">{t.shishaOptions}</h4>
+                      <div className="text-sm space-y-1">
+                        <div className="flex justify-between items-center">
+                          <span>{t.iceHose}</span>
+                          <span className="text-muted-foreground">{formatPrice(systemPreview.iceHose)}</span>
+                        </div>
                       </div>
-                      <div className="flex justify-between items-center">
-                        <span>{t.juiceBottle}</span>
-                        <span className="text-muted-foreground">¥1,000</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span>{t.alcoholBottle}</span>
-                        <span className="text-muted-foreground">¥3,000</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span>{t.topChange}</span>
-                        <span className="text-muted-foreground">¥2,000</span>
-                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
                 
                 <Button variant="outline" className="w-full bg-transparent" onClick={() => openMenuModal('flavors')}>
