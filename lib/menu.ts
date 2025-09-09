@@ -62,6 +62,7 @@ export async function getDrinkMenu(): Promise<MenuCategory[]> {
 export async function getFlavorMenu(): Promise<MenuCategory[]> {
   try {
     // カテゴリーと商品を一緒に取得
+    const supabase = getSupabaseClient()
     const { data: categories, error: categoriesError } = await supabase
       .from('categories')
       .select('*')
@@ -101,6 +102,7 @@ export async function getFlavorMenu(): Promise<MenuCategory[]> {
 
 export async function getShishaMenu(): Promise<MenuProduct[]> {
   try {
+    const supabase = getSupabaseClient()
     const { data: products, error } = await supabase
       .from('products')
       .select('*')
