@@ -34,12 +34,12 @@ const fallbackDrinkMenu: MenuCategory[] = [
     name: 'ウイスキー',
     type: 'drink',
     items: [
-      { id: 'whisky-yamazaki', name: '山崎', price: 900 },
-      { id: 'whisky-hakushu', name: '白州', price: 900 },
-      { id: 'whisky-chita', name: '知多', price: 800 },
-      { id: 'whisky-chivas', name: 'シーバスリーガル', price: 800 },
-      { id: 'whisky-ballantine', name: 'バランタイン', price: 800 },
-      { id: 'whisky-suntory', name: 'サントリー角', price: 700 }
+      { id: 'whisky-yamazaki', name: '山崎', price: 1500 },
+      { id: 'whisky-hakushu', name: '白州', price: 1500 },
+      { id: 'whisky-chita', name: '知多', price: 1300 },
+      { id: 'whisky-chivas', name: 'シーバスリーガル', price: 1000 },
+      { id: 'whisky-ballantine', name: 'バランタイン', price: 1000 },
+      { id: 'whisky-suntory', name: 'サントリー角', price: 800 }
     ]
   },
   {
@@ -47,11 +47,11 @@ const fallbackDrinkMenu: MenuCategory[] = [
     name: 'サワー',
     type: 'drink',
     items: [
-      { id: 'sour-lemon', name: 'レモンサワー', price: 700 },
-      { id: 'sour-grapefruit', name: 'グレープフルーツサワー', price: 700 },
-      { id: 'high-oolong', name: 'ウーロンハイ', price: 700 },
-      { id: 'high-jasmine', name: 'ジャスミンハイ', price: 700 },
-      { id: 'high-green', name: '緑茶ハイ', price: 700 }
+      { id: 'sour-lemon', name: 'レモンサワー', price: 800 },
+      { id: 'sour-grapefruit', name: 'グレープフルーツサワー', price: 800 },
+      { id: 'high-oolong', name: 'ウーロンハイ', price: 800 },
+      { id: 'high-jasmine', name: 'ジャスミンハイ', price: 800 },
+      { id: 'high-green', name: '緑茶ハイ', price: 800 }
     ]
   },
   {
@@ -65,7 +65,7 @@ const fallbackDrinkMenu: MenuCategory[] = [
       { id: 'cocktail-screwdriver', name: 'スクリュードライバー', price: 800 },
       { id: 'cocktail-bulldog', name: 'ブルドッグ', price: 800 },
       { id: 'cocktail-moscow', name: 'モスコミュール', price: 800 },
-      { id: 'cocktail-redbull-vodka', name: 'レッドブルウォッカ', price: 1000 },
+      { id: 'cocktail-redbull-vodka', name: 'レッドブルウォッカ', price: 800 },
       { id: 'cocktail-rum-coke', name: 'ラムコーク', price: 800 },
       { id: 'cocktail-rum-buck', name: 'ラムバック', price: 800 },
       { id: 'cocktail-cassis', name: 'カシス', price: 800 },
@@ -91,8 +91,8 @@ const fallbackDrinkMenu: MenuCategory[] = [
     name: 'シャンパン',
     type: 'drink',
     items: [
-      { id: 'champagne-dom-white', name: 'ドンペリニヨン（白）', price: 35000 },
-      { id: 'champagne-veuve', name: 'ヴーヴ・クリコ', price: 20000 }
+      { id: 'champagne-dom-white', name: 'ドンペリニヨン（白）', price: 80000 },
+      { id: 'champagne-veuve', name: 'ヴーヴ・クリコ', price: 30000 }
     ]
   },
   {
@@ -108,7 +108,7 @@ const fallbackDrinkMenu: MenuCategory[] = [
       { id: 'soft-jasmine', name: 'ジャスミン茶', price: 700 },
       { id: 'soft-green', name: '緑茶', price: 700 },
       { id: 'soft-ginger-ale', name: 'ジンジャエール', price: 700 },
-      { id: 'soft-redbull', name: 'レッドブル', price: 800 },
+      { id: 'soft-redbull', name: 'レッドブル', price: 700 },
       { id: 'soft-coffee', name: 'コーヒー', price: 700 }
     ]
   }
