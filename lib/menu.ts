@@ -49,7 +49,6 @@ const fallbackDrinkMenu: MenuCategory[] = [
     items: [
       { id: 'sour-lemon', name: 'レモンサワー', price: 700 },
       { id: 'sour-grapefruit', name: 'グレープフルーツサワー', price: 700 },
-      { id: 'sour-chuhi-lemon', name: 'チューハイレモン', price: 700 },
       { id: 'high-oolong', name: 'ウーロンハイ', price: 700 },
       { id: 'high-jasmine', name: 'ジャスミンハイ', price: 700 },
       { id: 'high-green', name: '緑茶ハイ', price: 700 }
@@ -60,15 +59,12 @@ const fallbackDrinkMenu: MenuCategory[] = [
     name: 'カクテル',
     type: 'drink',
     items: [
-      { id: 'cocktail-mojito', name: 'モヒート', price: 800 },
-      { id: 'cocktail-caipirinha', name: 'カイピリーニャ', price: 800 },
       { id: 'cocktail-gin-tonic', name: 'ジントニック', price: 800 },
       { id: 'cocktail-gin-buck', name: 'ジンバック', price: 800 },
       { id: 'cocktail-gin-rickey', name: 'ジンリッキー', price: 800 },
       { id: 'cocktail-screwdriver', name: 'スクリュードライバー', price: 800 },
       { id: 'cocktail-bulldog', name: 'ブルドッグ', price: 800 },
       { id: 'cocktail-moscow', name: 'モスコミュール', price: 800 },
-      { id: 'cocktail-long-island', name: 'ロングアイランドアイスティー', price: 1000 },
       { id: 'cocktail-redbull-vodka', name: 'レッドブルウォッカ', price: 1000 },
       { id: 'cocktail-rum-coke', name: 'ラムコーク', price: 800 },
       { id: 'cocktail-rum-buck', name: 'ラムバック', price: 800 },
@@ -88,7 +84,6 @@ const fallbackDrinkMenu: MenuCategory[] = [
     items: [
       { id: 'wine-red', name: '赤ワイン', price: 800 },
       { id: 'wine-white', name: '白ワイン', price: 800 },
-      { id: 'wine-sparkling', name: 'スパークリング', price: 900 }
     ]
   },
   {
@@ -96,11 +91,8 @@ const fallbackDrinkMenu: MenuCategory[] = [
     name: 'シャンパン',
     type: 'drink',
     items: [
-      { id: 'champagne-dom', name: 'ドンペリニヨン', price: 30000 },
       { id: 'champagne-dom-white', name: 'ドンペリニヨン（白）', price: 35000 },
-      { id: 'champagne-veuve', name: 'ヴーヴ・クリコ', price: 20000 },
-      { id: 'champagne-louis', name: 'ルイロデレール', price: 25000 },
-      { id: 'champagne-krug', name: 'クリュッグ', price: 45000 }
+      { id: 'champagne-veuve', name: 'ヴーヴ・クリコ', price: 20000 }
     ]
   },
   {
@@ -109,9 +101,7 @@ const fallbackDrinkMenu: MenuCategory[] = [
     type: 'drink',
     items: [
       { id: 'soft-cocacola', name: 'コカコーラ', price: 700 },
-      { id: 'soft-sprite', name: 'スプライト', price: 700 },
       { id: 'soft-orange', name: 'オレンジジュース', price: 700 },
-      { id: 'soft-apple', name: 'アップルジュース', price: 700 },
       { id: 'soft-grapefruit', name: 'グレープフルーツジュース', price: 700 },
       { id: 'soft-oolong', name: 'ウーロン茶', price: 700 },
       { id: 'soft-oolong2', name: '烏龍茶', price: 700 },
@@ -165,9 +155,7 @@ const fallbackFlavorMenu: MenuCategory[] = [
       { id: 'flv-banana', name: 'バナナ' },
       { id: 'flv-guava', name: 'グアバ' },
       { id: 'flv-passionfruit', name: 'パッションフルーツ' },
-      { id: 'flv-elderflower', name: '接骨木' },
-      { id: 'flv-pear', name: '洋梨' },
-      { id: 'flv-apricot', name: '杏' }
+      { id: 'flv-pear', name: 'ペア' }
     ]
   },
   {
@@ -177,8 +165,7 @@ const fallbackFlavorMenu: MenuCategory[] = [
     items: [
       { id: 'flv-earl-grey', name: 'アールグレイ' },
       { id: 'flv-bergamot', name: 'ベルガモットティー' },
-      { id: 'flv-linden', name: 'リンデンティー' },
-      { id: 'flv-jasmine', name: 'ジャスミン' }
+      { id: 'flv-linden', name: 'リンデンティー' }
     ]
   },
   {
@@ -209,6 +196,7 @@ const fallbackFlavorMenu: MenuCategory[] = [
       { id: 'flv-hinoki', name: 'ヒノキ' },
       { id: 'flv-spring-water', name: 'スプリングウォーター' },
       { id: 'flv-rose', name: 'ローズ' },
+      { id: 'flv-jasmine', name: 'ジャスミン' },
       { id: 'flv-cola', name: 'コーラ' }
     ]
   }

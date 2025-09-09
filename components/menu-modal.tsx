@@ -92,9 +92,7 @@ export default function MenuModal({ isOpen, onClose, type }: MenuModalProps) {
       "パッションフルーツ": "passionfruit",
       
       // Additional Fruit Flavors  
-      "接骨木": "elderflower",
-      "洋梨": "pear", 
-      "杏": "apricot",
+      "ペア": "pear",
       
       // Tea Flavors
       "アールグレイ": "earlGrey",
@@ -138,30 +136,20 @@ export default function MenuModal({ isOpen, onClose, type }: MenuModalProps) {
       // Drink Menu Items - Sour
       "レモンサワー": "lemonSour",
       "グレープフルーツサワー": "grapefruitSour",
-      "チューハイレモン": "chuHiLemon",
       
       // Drink Menu Items - Cocktail
-      "モヒート": "mojito",
-      "カイピリーニャ": "caipirinha",
       "ジントニック": "ginTonic",
       "モスコミュール": "moscowMule",
-      "ロングアイランドアイスティー": "longIslandIcedTea",
       
       // Drink Menu Items - Wine
       "赤ワイン": "redWine",
       "白ワイン": "whiteWine",
-      "スパークリング": "sparkling",
       
       // Drink Menu Items - Champagne
-      "ドンペリニヨン": "domPerignon",
-      "ルイロデレール": "louisRoederer",
-      "クリュッグ": "krug",
       
       // Drink Menu Items - Soft Drinks
       "コカコーラ": "cocaCola",
-      "スプライト": "sprite",
       "オレンジジュース": "orangeJuice",
-      "アップルジュース": "appleJuice",
       "グレープフルーツジュース": "grapefruitJuice",
       "ウーロン茶": "oolongTea",
       "コーヒー": "coffee",
