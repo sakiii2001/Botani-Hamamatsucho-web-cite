@@ -282,7 +282,7 @@ export const translations: Record<Language, Translations> = {
     aboutShishaDescription: "別名\"水タバコ\"とも呼ばれる「シーシャ」。水タバコは中近東で発明され、その後インド北部や中国、東南アジアの一部に伝わりました。シーシャは皿の上で燃やしたタバコの煙を「水パイプ」という専用の器具でろ過し、香りを楽しむものです。",
     address: "住所",
     openGoogleMaps: "Googleマップで開く",
-    phoneReservations: "お電話でのご予約承ります",
+    phoneReservations: "お電話でのご予約承ります 070ー1465ー0041",
     businessHours: "営業時間",
     businessHoursValue: "13:00 - 24:00",
     businessHoursNote: "※最終入店は23:00まで",
