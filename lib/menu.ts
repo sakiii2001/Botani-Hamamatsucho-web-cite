@@ -25,17 +25,34 @@ const fallbackDrinkMenu: MenuCategory[] = [
     name: 'ビール',
     type: 'drink',
     items: [
-      { id: 'corona', name: 'コロナ', price: 800 },
-      { id: 'heineken', name: 'ハイネケン', price: 800 }
+      { id: 'beer-corona', name: 'コロナ', price: 800 },
+      { id: 'beer-heineken', name: 'ハイネケン', price: 800 }
     ]
   },
   {
-    id: 'drink-highball',
-    name: 'ハイボール',
+    id: 'drink-whiskey',
+    name: 'ウイスキー',
     type: 'drink',
     items: [
-      { id: 'highball', name: 'ハイボール', price: 700 },
-      { id: 'kaku', name: 'サントリー角', price: 800 }
+      { id: 'whisky-yamazaki', name: '山崎', price: 900 },
+      { id: 'whisky-hakushu', name: '白州', price: 900 },
+      { id: 'whisky-chita', name: '知多', price: 800 },
+      { id: 'whisky-chivas', name: 'シーバスリーガル', price: 800 },
+      { id: 'whisky-ballantine', name: 'バランタイン', price: 800 },
+      { id: 'whisky-suntory', name: 'サントリー角', price: 700 }
+    ]
+  },
+  {
+    id: 'drink-sour',
+    name: 'サワー',
+    type: 'drink',
+    items: [
+      { id: 'sour-lemon', name: 'レモンサワー', price: 700 },
+      { id: 'sour-grapefruit', name: 'グレープフルーツサワー', price: 700 },
+      { id: 'sour-chuhi-lemon', name: 'チューハイレモン', price: 700 },
+      { id: 'high-oolong', name: 'ウーロンハイ', price: 700 },
+      { id: 'high-jasmine', name: 'ジャスミンハイ', price: 700 },
+      { id: 'high-green', name: '緑茶ハイ', price: 700 }
     ]
   },
   {
@@ -43,9 +60,47 @@ const fallbackDrinkMenu: MenuCategory[] = [
     name: 'カクテル',
     type: 'drink',
     items: [
-      { id: 'gin-tonic', name: 'ジントニック', price: 800 },
-      { id: 'moscow-mule', name: 'モスコミュール', price: 800 },
-      { id: 'rum-coke', name: 'ラムコーク', price: 800 }
+      { id: 'cocktail-mojito', name: 'モヒート', price: 800 },
+      { id: 'cocktail-caipirinha', name: 'カイピリーニャ', price: 800 },
+      { id: 'cocktail-gin-tonic', name: 'ジントニック', price: 800 },
+      { id: 'cocktail-gin-buck', name: 'ジンバック', price: 800 },
+      { id: 'cocktail-gin-rickey', name: 'ジンリッキー', price: 800 },
+      { id: 'cocktail-screwdriver', name: 'スクリュードライバー', price: 800 },
+      { id: 'cocktail-bulldog', name: 'ブルドッグ', price: 800 },
+      { id: 'cocktail-moscow', name: 'モスコミュール', price: 800 },
+      { id: 'cocktail-long-island', name: 'ロングアイランドアイスティー', price: 1000 },
+      { id: 'cocktail-redbull-vodka', name: 'レッドブルウォッカ', price: 1000 },
+      { id: 'cocktail-rum-coke', name: 'ラムコーク', price: 800 },
+      { id: 'cocktail-rum-buck', name: 'ラムバック', price: 800 },
+      { id: 'cocktail-cassis', name: 'カシス', price: 800 },
+      { id: 'cocktail-cassis-orange', name: 'カシスオレンジ', price: 800 },
+      { id: 'cocktail-cassis-soda', name: 'カシスソーダ', price: 800 },
+      { id: 'cocktail-cassis-ginger', name: 'カシスジンジャー', price: 800 },
+      { id: 'cocktail-fuzzy-navel', name: 'ファジーネーブル', price: 800 },
+      { id: 'cocktail-reggae-punch', name: 'レゲエパンチ', price: 800 },
+      { id: 'cocktail-peach-fizz', name: 'ピーチフィズ', price: 800 }
+    ]
+  },
+  {
+    id: 'drink-wine',
+    name: 'ワイン',
+    type: 'drink',
+    items: [
+      { id: 'wine-red', name: '赤ワイン', price: 800 },
+      { id: 'wine-white', name: '白ワイン', price: 800 },
+      { id: 'wine-sparkling', name: 'スパークリング', price: 900 }
+    ]
+  },
+  {
+    id: 'drink-champagne',
+    name: 'シャンパン',
+    type: 'drink',
+    items: [
+      { id: 'champagne-dom', name: 'ドンペリニヨン', price: 30000 },
+      { id: 'champagne-dom-white', name: 'ドンペリニヨン（白）', price: 35000 },
+      { id: 'champagne-veuve', name: 'ヴーヴ・クリコ', price: 20000 },
+      { id: 'champagne-louis', name: 'ルイロデレール', price: 25000 },
+      { id: 'champagne-krug', name: 'クリュッグ', price: 45000 }
     ]
   },
   {
@@ -53,9 +108,18 @@ const fallbackDrinkMenu: MenuCategory[] = [
     name: 'ソフトドリンク',
     type: 'drink',
     items: [
-      { id: 'coca-cola', name: 'コカコーラ', price: 700 },
-      { id: 'sprite', name: 'スプライト', price: 700 },
-      { id: 'oolong', name: 'ウーロン茶', price: 700 }
+      { id: 'soft-cocacola', name: 'コカコーラ', price: 700 },
+      { id: 'soft-sprite', name: 'スプライト', price: 700 },
+      { id: 'soft-orange', name: 'オレンジジュース', price: 700 },
+      { id: 'soft-apple', name: 'アップルジュース', price: 700 },
+      { id: 'soft-grapefruit', name: 'グレープフルーツジュース', price: 700 },
+      { id: 'soft-oolong', name: 'ウーロン茶', price: 700 },
+      { id: 'soft-oolong2', name: '烏龍茶', price: 700 },
+      { id: 'soft-jasmine', name: 'ジャスミン茶', price: 700 },
+      { id: 'soft-green', name: '緑茶', price: 700 },
+      { id: 'soft-ginger-ale', name: 'ジンジャエール', price: 700 },
+      { id: 'soft-redbull', name: 'レッドブル', price: 800 },
+      { id: 'soft-coffee', name: 'コーヒー', price: 700 }
     ]
   }
 ]
@@ -80,11 +144,30 @@ const fallbackFlavorMenu: MenuCategory[] = [
     name: 'フルーツ',
     type: 'flavor',
     items: [
-      { id: 'double-apple', name: 'ダブルアップル' },
-      { id: 'peach', name: 'ピーチ' },
-      { id: 'mango', name: 'マンゴー' },
-      { id: 'grape', name: 'グレープ' },
-      { id: 'watermelon', name: 'スイカ' }
+      { id: 'flv-double-apple', name: 'ダブルアップル' },
+      { id: 'flv-peach', name: 'ピーチ' },
+      { id: 'flv-lime', name: 'ライム' },
+      { id: 'flv-lemon', name: 'レモン' },
+      { id: 'flv-orange', name: 'オレンジ' },
+      { id: 'flv-grapefruit', name: 'グレープフルーツ' },
+      { id: 'flv-mango', name: 'マンゴー' },
+      { id: 'flv-pineapple', name: 'パイン' },
+      { id: 'flv-cherry', name: 'チェリー' },
+      { id: 'flv-raspberry', name: 'ラズベリー' },
+      { id: 'flv-strawberry', name: 'ストロベリー' },
+      { id: 'flv-blueberry', name: 'ブルーベリー' },
+      { id: 'flv-pomegranate', name: 'ザクロ' },
+      { id: 'flv-grape', name: 'グレープ' },
+      { id: 'flv-watermelon', name: 'スイカ' },
+      { id: 'flv-melon', name: 'メロン' },
+      { id: 'flv-lychee', name: 'ライチ' },
+      { id: 'flv-kiwi', name: 'キウイ' },
+      { id: 'flv-banana', name: 'バナナ' },
+      { id: 'flv-guava', name: 'グアバ' },
+      { id: 'flv-passionfruit', name: 'パッションフルーツ' },
+      { id: 'flv-elderflower', name: '接骨木' },
+      { id: 'flv-pear', name: '洋梨' },
+      { id: 'flv-apricot', name: '杏' }
     ]
   },
   {
@@ -92,17 +175,41 @@ const fallbackFlavorMenu: MenuCategory[] = [
     name: 'ティー',
     type: 'flavor',
     items: [
-      { id: 'earl-grey', name: 'アールグレイ' },
-      { id: 'jasmine', name: 'ジャスミン' }
+      { id: 'flv-earl-grey', name: 'アールグレイ' },
+      { id: 'flv-bergamot', name: 'ベルガモットティー' },
+      { id: 'flv-linden', name: 'リンデンティー' },
+      { id: 'flv-jasmine', name: 'ジャスミン' }
     ]
   },
   {
-    id: 'flavor-others',
+    id: 'flavor-sweet',
+    name: 'スイート',
+    type: 'flavor',
+    items: [
+      { id: 'flv-vanilla', name: 'バニラ' },
+      { id: 'flv-milk', name: 'ミルク' },
+      { id: 'flv-honey', name: 'ハチミツ' },
+      { id: 'flv-caramel', name: 'キャラメル' },
+      { id: 'flv-cappuccino', name: 'カプチーノ' },
+      { id: 'flv-yogurt', name: 'ヨーグルト' },
+      { id: 'flv-coconut', name: 'ココナッツ' }
+    ]
+  },
+  {
+    id: 'flavor-spice',
     name: 'スパイス・その他',
     type: 'flavor',
     items: [
-      { id: 'mint', name: 'ミント' },
-      { id: 'white-musk', name: 'ホワイトムスク' }
+      { id: 'flv-mint', name: 'ミント' },
+      { id: 'flv-ice', name: 'アイス' },
+      { id: 'flv-cardamom', name: 'カルダモン' },
+      { id: 'flv-cinnamon', name: 'シナモン' },
+      { id: 'flv-panlazna', name: 'パンラズナ' },
+      { id: 'flv-white-musk', name: 'ホワイトムスク' },
+      { id: 'flv-hinoki', name: 'ヒノキ' },
+      { id: 'flv-spring-water', name: 'スプリングウォーター' },
+      { id: 'flv-rose', name: 'ローズ' },
+      { id: 'flv-cola', name: 'コーラ' }
     ]
   }
 ]
