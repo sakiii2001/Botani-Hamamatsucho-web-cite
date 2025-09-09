@@ -53,6 +53,12 @@ export default function HomePage() {
               </ClientOnly>
               <Button onClick={() => document.getElementById('reservation')?.scrollIntoView({ behavior: 'smooth' })}>{t.reserveNow}</Button>
             </div>
+            {/* Mobile language selector */}
+            <div className="md:hidden">
+              <ClientOnly>
+                <LanguageSelector />
+              </ClientOnly>
+            </div>
           </nav>
         </div>
       </header>
