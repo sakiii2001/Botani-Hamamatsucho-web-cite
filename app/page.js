@@ -110,19 +110,14 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4">
           <nav className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="relative overflow-hidden">
-                <Image
-                  src="/images/botani-logo.png"
-                  alt="BOTANI"
-                  width={240}
-                  height={80}
-                  className="h-8 sm:h-10 w-auto object-contain hover:opacity-90 transition-opacity dark:invert"
-                  style={{ 
-                    clipPath: 'inset(0 15% 0 0)'
-                  }}
-                  priority
-                />
-              </div>
+              <Image
+                src="/images/botani-logo.png"
+                alt="BOTANI"
+                width={280}
+                height={80}
+                className="h-8 sm:h-10 w-auto object-contain hover:opacity-90 transition-opacity dark:invert"
+                priority
+              />
               <Badge variant="secondary" className="hidden sm:block">{t.storeLocation}</Badge>
             </div>
             <div className="hidden md:flex items-center space-x-6">
@@ -489,16 +484,13 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="mb-4 relative overflow-hidden">
+              <div className="mb-4">
                 <Image
                   src="/images/botani-logo.png"
                   alt="BOTANI"
-                  width={200}
+                  width={240}
                   height={66}
                   className="h-8 w-auto object-contain mb-2 dark:invert"
-                  style={{ 
-                    clipPath: 'inset(0 15% 0 0)'
-                  }}
                 />
               </div>
               <p className="text-sidebar-foreground/80 mb-4">{t.footerDescription}</p>
