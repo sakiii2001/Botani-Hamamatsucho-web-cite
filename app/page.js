@@ -109,9 +109,22 @@ export default function HomePage() {
       <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <nav className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <h1 className="text-2xl font-serif font-bold text-foreground tracking-wide">{t.storeName}</h1>
-              <Badge variant="secondary">{t.storeLocation}</Badge>
+            <div className="flex items-center space-x-3">
+              <div className="relative overflow-hidden">
+                <Image
+                  src="/images/botani-logo.png"
+                  alt="BOTANI"
+                  width={180}
+                  height={60}
+                  className="h-10 sm:h-12 w-auto object-contain hover:opacity-90 transition-opacity object-top"
+                  style={{ 
+                    clipPath: 'inset(0 0 35% 0)',
+                    transform: 'scale(1.2) translateY(-10%)'
+                  }}
+                  priority
+                />
+              </div>
+              <Badge variant="secondary" className="hidden sm:block">{t.storeLocation}</Badge>
             </div>
             <div className="hidden md:flex items-center space-x-6">
               <Link href="#menu" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -477,7 +490,19 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h4 className="text-xl font-serif font-bold mb-4 tracking-wide">{t.storeName} {t.storeLocation}</h4>
+              <div className="mb-4 relative overflow-hidden">
+                <Image
+                  src="/images/botani-logo.png"
+                  alt="BOTANI"
+                  width={160}
+                  height={54}
+                  className="h-10 w-auto object-contain mb-2 object-top"
+                  style={{ 
+                    clipPath: 'inset(0 0 35% 0)',
+                    transform: 'scale(1.2) translateY(-10%)'
+                  }}
+                />
+              </div>
               <p className="text-sidebar-foreground/80 mb-4">{t.footerDescription}</p>
               <p className="text-sidebar-foreground/60 text-sm mb-2">
                 〒105-0013 東京都港区浜松町１丁目２４−５ロマネBLDG 3F
