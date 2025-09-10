@@ -216,7 +216,6 @@ export interface Translations {
   // Additional Soft Drink Items
   gingerAle: string
   redBull: string
-  oolongTea2: string
   jasmineTeaDrink: string
   greenTea: string
   
@@ -462,7 +461,6 @@ export const translations: Record<Language, Translations> = {
     // Additional Soft Drink Items
     gingerAle: "ジンジャエール",
     redBull: "レッドブル",
-    oolongTea2: "烏龍茶",
     jasmineTeaDrink: "ジャスミン茶",
     greenTea: "緑茶",
     
@@ -707,7 +705,6 @@ export const translations: Record<Language, Translations> = {
     // Additional Soft Drink Items
     gingerAle: "Ginger Ale",
     redBull: "Red Bull",
-    oolongTea2: "Oolong Tea",
     jasmineTeaDrink: "Jasmine Tea",
     greenTea: "Green Tea",
     
@@ -952,7 +949,6 @@ export const translations: Record<Language, Translations> = {
     // Additional Soft Drink Items
     gingerAle: "姜汁汽水",
     redBull: "红牛",
-    oolongTea2: "乌龙茶",
     jasmineTeaDrink: "茉莉花茶",
     greenTea: "绿茶",
     

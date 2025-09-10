@@ -197,7 +197,7 @@ export default function MenuModal({ isOpen, onClose, type }: MenuModalProps) {
       "ジンバック": "ginBuck",
       "ジンリッキー": "ginRickey", 
       "スクリュードライバー": "screwdriver",
-      "ブルドック": "bulldog",
+      "ブルドッグ": "bulldog",
       "レッドブルウォッカ": "redBullVodka",
       "ラムコーク": "rumCoke",
       "ラムバック": "rumBuck",
@@ -216,7 +216,6 @@ export default function MenuModal({ isOpen, onClose, type }: MenuModalProps) {
       // Additional Soft Drink Items
       "ジンジャエール": "gingerAle",
       "レッドブル": "redBull",
-      "烏龍茶": "oolongTea2",
       "ジャスミン茶": "jasmineTeaDrink",
       "緑茶": "greenTea",
       

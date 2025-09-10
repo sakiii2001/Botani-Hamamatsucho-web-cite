@@ -104,7 +104,6 @@ const fallbackDrinkMenu: MenuCategory[] = [
       { id: 'soft-orange', name: 'オレンジジュース', price: 700 },
       { id: 'soft-grapefruit', name: 'グレープフルーツジュース', price: 700 },
       { id: 'soft-oolong', name: 'ウーロン茶', price: 700 },
-      { id: 'soft-oolong2', name: '烏龍茶', price: 700 },
       { id: 'soft-jasmine', name: 'ジャスミン茶', price: 700 },
       { id: 'soft-green', name: '緑茶', price: 700 },
       { id: 'soft-ginger-ale', name: 'ジンジャエール', price: 700 },
