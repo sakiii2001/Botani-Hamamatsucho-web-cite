@@ -114,12 +114,11 @@ export default function HomePage() {
                 <Image
                   src="/images/botani-logo.png"
                   alt="BOTANI"
-                  width={180}
-                  height={60}
-                  className="h-10 sm:h-12 w-auto object-contain hover:opacity-90 transition-opacity object-top"
+                  width={240}
+                  height={80}
+                  className="h-8 sm:h-10 w-auto object-contain hover:opacity-90 transition-opacity dark:invert"
                   style={{ 
-                    clipPath: 'inset(0 0 35% 0)',
-                    transform: 'scale(1.2) translateY(-10%)'
+                    clipPath: 'inset(0 15% 0 0)'
                   }}
                   priority
                 />
@@ -494,12 +493,11 @@ export default function HomePage() {
                 <Image
                   src="/images/botani-logo.png"
                   alt="BOTANI"
-                  width={160}
-                  height={54}
-                  className="h-10 w-auto object-contain mb-2 object-top"
+                  width={200}
+                  height={66}
+                  className="h-8 w-auto object-contain mb-2 dark:invert"
                   style={{ 
-                    clipPath: 'inset(0 0 35% 0)',
-                    transform: 'scale(1.2) translateY(-10%)'
+                    clipPath: 'inset(0 15% 0 0)'
                   }}
                 />
               </div>
