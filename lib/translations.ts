@@ -230,6 +230,19 @@ export interface Translations {
   lineDescription: string
   lineIdLabel: string
   lineAddButton: string
+  
+  // Menu Categories
+  beerCategory: string
+  whiskeyCategory: string
+  sourCategory: string
+  cocktailCategory: string
+  wineCategory: string
+  champagneCategory: string
+  softDrinkCategory: string
+  fruitCategory: string
+  teaCategory: string
+  sweetCategory: string
+  spiceCategory: string
 }
 
 export const translations: Record<Language, Translations> = {
@@ -462,7 +475,20 @@ export const translations: Record<Language, Translations> = {
     lineTitle: "LINE公式アカウント",
     lineDescription: "最新情報を定期的に配信していきます。",
     lineIdLabel: "または下のボタンから追加してください",
-    lineAddButton: "LINE友達追加"
+    lineAddButton: "LINE友達追加",
+    
+    // Menu Categories
+    beerCategory: "ビール",
+    whiskeyCategory: "ウイスキー",
+    sourCategory: "サワー",
+    cocktailCategory: "カクテル", 
+    wineCategory: "ワイン",
+    champagneCategory: "シャンパン",
+    softDrinkCategory: "ソフトドリンク",
+    fruitCategory: "フルーツ",
+    teaCategory: "ティー",
+    sweetCategory: "スイート",
+    spiceCategory: "スパイス・その他"
   },
   
   en: {
@@ -694,7 +720,20 @@ export const translations: Record<Language, Translations> = {
     lineTitle: "Official LINE Account",
     lineDescription: "We regularly share the latest information and updates.",
     lineIdLabel: "Or add us using the button below",
-    lineAddButton: "Add LINE Friend"
+    lineAddButton: "Add LINE Friend",
+    
+    // Menu Categories
+    beerCategory: "Beer",
+    whiskeyCategory: "Whiskey",
+    sourCategory: "Sour",
+    cocktailCategory: "Cocktail",
+    wineCategory: "Wine", 
+    champagneCategory: "Champagne",
+    softDrinkCategory: "Soft Drink",
+    fruitCategory: "Fruit",
+    teaCategory: "Tea",
+    sweetCategory: "Sweet",
+    spiceCategory: "Spice & Others"
   },
   
   zh: {
@@ -926,6 +965,19 @@ export const translations: Record<Language, Translations> = {
     lineTitle: "官方LINE账号",
     lineDescription: "我们会定期分享最新信息和动态。",
     lineIdLabel: "或使用下方按钮添加我们",
-    lineAddButton: "添加LINE好友"
+    lineAddButton: "添加LINE好友",
+    
+    // Menu Categories
+    beerCategory: "啤酒",
+    whiskeyCategory: "威士忌",
+    sourCategory: "酸味酒",
+    cocktailCategory: "鸡尾酒",
+    wineCategory: "葡萄酒",
+    champagneCategory: "香槟",
+    softDrinkCategory: "软饮料",
+    fruitCategory: "水果",
+    teaCategory: "茶",
+    sweetCategory: "甜味",
+    spiceCategory: "香料及其他"
   }
 }

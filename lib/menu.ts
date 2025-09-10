@@ -22,7 +22,7 @@ export interface MenuProduct {
 const fallbackDrinkMenu: MenuCategory[] = [
   {
     id: 'drink-beer',
-    name: 'ビール',
+    name: 'Beer',
     type: 'drink',
     items: [
       { id: 'beer-corona', name: 'コロナ', price: 800 },
@@ -31,7 +31,7 @@ const fallbackDrinkMenu: MenuCategory[] = [
   },
   {
     id: 'drink-whiskey',
-    name: 'ウイスキー',
+    name: 'Whiskey',
     type: 'drink',
     items: [
       { id: 'whisky-yamazaki', name: '山崎', price: 1500 },
@@ -44,7 +44,7 @@ const fallbackDrinkMenu: MenuCategory[] = [
   },
   {
     id: 'drink-sour',
-    name: 'サワー',
+    name: 'Sour',
     type: 'drink',
     items: [
       { id: 'sour-lemon', name: 'レモンサワー', price: 800 },
@@ -56,7 +56,7 @@ const fallbackDrinkMenu: MenuCategory[] = [
   },
   {
     id: 'drink-cocktail',
-    name: 'カクテル',
+    name: 'Cocktail',
     type: 'drink',
     items: [
       { id: 'cocktail-gin-tonic', name: 'ジントニック', price: 800 },
@@ -79,7 +79,7 @@ const fallbackDrinkMenu: MenuCategory[] = [
   },
   {
     id: 'drink-wine',
-    name: 'ワイン',
+    name: 'Wine',
     type: 'drink',
     items: [
       { id: 'wine-red', name: '赤ワイン', price: 800 },
@@ -88,7 +88,7 @@ const fallbackDrinkMenu: MenuCategory[] = [
   },
   {
     id: 'drink-champagne',
-    name: 'シャンパン',
+    name: 'Champagne',
     type: 'drink',
     items: [
       { id: 'champagne-dom-white', name: 'ドンペリニヨン（白）', price: 80000 },
@@ -97,7 +97,7 @@ const fallbackDrinkMenu: MenuCategory[] = [
   },
   {
     id: 'drink-soft',
-    name: 'ソフトドリンク',
+    name: 'Soft Drink',
     type: 'drink',
     items: [
       { id: 'soft-cocacola', name: 'コカコーラ', price: 700 },
@@ -131,7 +131,7 @@ const fallbackShishaMenu: MenuProduct[] = [
 const fallbackFlavorMenu: MenuCategory[] = [
   {
     id: 'flavor-fruit',
-    name: 'フルーツ',
+    name: 'Fruit',
     type: 'flavor',
     items: [
       { id: 'flv-double-apple', name: 'ダブルアップル' },
@@ -160,7 +160,7 @@ const fallbackFlavorMenu: MenuCategory[] = [
   },
   {
     id: 'flavor-tea',
-    name: 'ティー',
+    name: 'Tea',
     type: 'flavor',
     items: [
       { id: 'flv-earl-grey', name: 'アールグレイ' },
@@ -170,7 +170,7 @@ const fallbackFlavorMenu: MenuCategory[] = [
   },
   {
     id: 'flavor-sweet',
-    name: 'スイート',
+    name: 'Sweet',
     type: 'flavor',
     items: [
       { id: 'flv-vanilla', name: 'バニラ' },
@@ -184,7 +184,7 @@ const fallbackFlavorMenu: MenuCategory[] = [
   },
   {
     id: 'flavor-spice',
-    name: 'スパイス・その他',
+    name: 'Spice & Others',
     type: 'flavor',
     items: [
       { id: 'flv-mint', name: 'ミント' },

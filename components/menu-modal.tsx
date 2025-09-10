@@ -57,6 +57,45 @@ export default function MenuModal({ isOpen, onClose, type }: MenuModalProps) {
     return `¥${price.toLocaleString()}`
   }
 
+  // カテゴリー名を翻訳する関数
+  const getTranslatedCategoryName = (categoryName: string): string => {
+    const categoryMap: { [key: string]: keyof typeof t } = {
+      // Drink categories
+      "Beer": "beerCategory",
+      "Whiskey": "whiskeyCategory", 
+      "Sour": "sourCategory",
+      "Cocktail": "cocktailCategory",
+      "Wine": "wineCategory",
+      "Champagne": "champagneCategory",
+      "Soft Drink": "softDrinkCategory",
+      
+      // Flavor categories
+      "Fruit": "fruitCategory",
+      "Tea": "teaCategory", 
+      "Sweet": "sweetCategory",
+      "Spice & Others": "spiceCategory",
+      
+      // Legacy Japanese names for backward compatibility
+      "ビール": "beerCategory",
+      "ウイスキー": "whiskeyCategory",
+      "サワー": "sourCategory", 
+      "カクテル": "cocktailCategory",
+      "ワイン": "wineCategory",
+      "シャンパン": "champagneCategory",
+      "ソフトドリンク": "softDrinkCategory",
+      "フルーツ": "fruitCategory",
+      "ティー": "teaCategory",
+      "スイート": "sweetCategory",
+      "スパイス・その他": "spiceCategory"
+    }
+    
+    const key = categoryMap[categoryName]
+    if (key && t[key]) {
+      return t[key] as string
+    }
+    return categoryName // 翻訳がない場合は元の名前を返す
+  }
+
   // 日本語の項目名を翻訳されたテキストに変換する関数
   const getTranslatedItemName = (itemName: string): string => {
     const nameMap: { [key: string]: keyof typeof t } = {
@@ -229,7 +268,7 @@ export default function MenuModal({ isOpen, onClose, type }: MenuModalProps) {
             <>
               {drinkMenu.map((category) => (
                 <div key={category.id}>
-                  <h4 className="font-semibold mb-3 text-lg">{category.name}</h4>
+                  <h4 className="font-semibold mb-3 text-lg">{getTranslatedCategoryName(category.name)}</h4>
                   <div className="space-y-2">
                     {category.items.map((item) => (
                       <div key={item.id} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
@@ -288,7 +327,7 @@ export default function MenuModal({ isOpen, onClose, type }: MenuModalProps) {
                 <h4 className="font-semibold mb-4 text-xl">{t.shishaFlavors}</h4>
                 {flavorMenu.map((category) => (
                   <div key={category.id} className="mb-6">
-                    <h5 className="font-semibold mb-3 text-lg">{category.name}</h5>
+                    <h5 className="font-semibold mb-3 text-lg">{getTranslatedCategoryName(category.name)}</h5>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
                       {category.items.map((flavor) => (
                         <div key={flavor.id} className="py-2 px-3 bg-primary/10 border border-border rounded-md text-center text-foreground font-medium text-sm">
